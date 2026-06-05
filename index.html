@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="بورتفوليو مصمم واجهات وتجربة مستخدم — أعمال UX/UI عصرية" />
+  <title>نور — مصمم واجهات وتجربة مستخدم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- خلفية متوهجة -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <!-- الشريط العلوي -->
+  <header class="nav" id="nav">
+    <a href="#" class="brand">
+      <span class="brand-mark">N</span>
+      <span class="brand-text">نور<small>.ديزاين</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">من أنا</a>
+      <a href="#services">الخدمات</a>
+      <a href="#work">الأعمال</a>
+      <a href="#process">طريقة العمل</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الليلي">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20"><path d="M12 17a5 5 0 100-10 5 5 0 000 10zM12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- البطل -->
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="badge"><span class="dot"></span> متاح لمشاريع جديدة · 2026</span>
+        <h1>أصمّم تجارب رقمية<br><span class="gradient-text">تُحبّها العين وتفهمها اليد</span></h1>
+        <p class="lead">
+          مصمم واجهات وتجربة مستخدم. أحوّل الأفكار المعقّدة إلى منتجات بسيطة،
+          جميلة، وسهلة الاستخدام — من البحث والـ wireframes حتى الواجهة النهائية القابلة للتطوير.
+        </p>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-primary">شوف الأعمال</a>
+          <a href="#contact" class="btn btn-ghost">ابدأ مشروعك ↗</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>+60</strong><span>مشروع منجز</span></div>
+          <div><strong>+8</strong><span>سنوات خبرة</span></div>
+          <div><strong>98%</strong><span>رضا العملاء</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- شريط العملاء -->
+    <section class="marquee" aria-label="عملاء">
+      <div class="marquee-track">
+        <span>Figma</span><span>•</span><span>Webflow</span><span>•</span><span>Notion</span><span>•</span>
+        <span>Linear</span><span>•</span><span>Vercel</span><span>•</span><span>Stripe</span><span>•</span>
+        <span>Figma</span><span>•</span><span>Webflow</span><span>•</span><span>Notion</span><span>•</span>
+        <span>Linear</span><span>•</span><span>Vercel</span><span>•</span><span>Stripe</span><span>•</span>
+      </div>
+    </section>
+
+    <!-- من أنا -->
+    <section class="section" id="about">
+      <div class="section-head">
+        <span class="kicker">من أنا</span>
+        <h2>تصميم يبدأ من المستخدم، وينتهي بنتيجة</h2>
+      </div>
+      <div class="about-grid">
+        <p class="about-lead">
+          مهمتي إني أخلّي المنتج واضح من أول نظرة. أشتغل على فهم المستخدم أولاً،
+          ثم أبني نظام تصميم متماسك يخدم العمل والجمال في آن واحد.
+        </p>
+        <div class="about-cards">
+          <article class="mini-card"><h3>🎯 موجّه بالهدف</h3><p>كل قرار تصميمي له سبب — قابل للقياس ومرتبط بأهداف المنتج.</p></article>
+          <article class="mini-card"><h3>♿ متاح للجميع</h3><p>تباين ألوان سليم، أحجام لمس مريحة، ودعم كامل للقارئات الصوتية.</p></article>
+          <article class="mini-card"><h3>⚡ جاهز للتطوير</h3><p>أسلّم مكوّنات منظّمة وقابلة لإعادة الاستخدام تسهّل عمل المبرمجين.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- الخدمات -->
+    <section class="section" id="services">
+      <div class="section-head">
+        <span class="kicker">الخدمات</span>
+        <h2>وش أقدر أسوي لك</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service">
+          <div class="service-ico">🧭</div>
+          <h3>UX Research</h3>
+          <p>مقابلات مستخدمين، خرائط رحلة، واختبار قابلية الاستخدام لاتخاذ قرارات مبنية على بيانات.</p>
+        </article>
+        <article class="service">
+          <div class="service-ico">🖌️</div>
+          <h3>UI Design</h3>
+          <p>واجهات عصرية، تناسق بصري، تفاعلات دقيقة — لكل شاشة من الجوال للديسكتوب.</p>
+        </article>
+        <article class="service">
+          <div class="service-ico">🧩</div>
+          <h3>Design Systems</h3>
+          <p>مكتبة مكوّنات موحّدة (ألوان، خطوط، spacing) تضمن اتساق المنتج وسرعة العمل.</p>
+        </article>
+        <article class="service">
+          <div class="service-ico">📱</div>
+          <h3>Prototyping</h3>
+          <p>نماذج تفاعلية قابلة للنقر تختبر الفكرة قبل كتابة أي سطر كود.</p>
+        </article>
+        <article class="service">
+          <div class="service-ico">🌐</div>
+          <h3>Web Design</h3>
+          <p>صفحات هبوط ومواقع متجاوبة سريعة التحميل تحوّل الزائر إلى عميل.</p>
+        </article>
+        <article class="service">
+          <div class="service-ico">🎞️</div>
+          <h3>Motion & Micro-interactions</h3>
+          <p>حركات تجعل المنتج حيّاً وتوجّه المستخدم بسلاسة دون تشتيت.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- الأعمال -->
+    <section class="section" id="work">
+      <div class="section-head">
+        <span class="kicker">الأعمال</span>
+        <h2>مشاريع مختارة</h2>
+      </div>
+      <div class="work-grid">
+        <article class="work-card big">
+          <div class="work-thumb thumb-1">
+            <div class="mock mock-dashboard">
+              <div class="mock-side"></div>
+              <div class="mock-main">
+                <div class="mock-row"></div>
+                <div class="mock-cards"><span></span><span></span><span></span></div>
+                <div class="mock-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="tag">لوحة تحكم · SaaS</span>
+            <h3>Pulse Analytics</h3>
+            <p>إعادة تصميم لوحة تحليلات رفعت معدّل الاستخدام اليومي 34%.</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-thumb thumb-2">
+            <div class="mock mock-mobile">
+              <div class="mphone"><div class="mp-top"></div><div class="mp-card"></div><div class="mp-list"><span></span><span></span><span></span></div></div>
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="tag">تطبيق جوال</span>
+            <h3>Zad — تطبيق مالي</h3>
+            <p>تجربة بنكية بسيطة وآمنة للجيل الجديد.</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-thumb thumb-3">
+            <div class="mock mock-store">
+              <div class="ms-hero"></div><div class="ms-grid"><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="tag">متجر إلكتروني</span>
+            <h3>Mawj Store</h3>
+            <p>متجر أزياء بتجربة شراء سلسة ومعدّل تحويل أعلى.</p>
+          </div>
+        </article>
+
+        <article class="work-card wide">
+          <div class="work-thumb thumb-4">
+            <div class="mock mock-landing">
+              <div class="ml-nav"></div><div class="ml-hero"><b></b><i></i></div><div class="ml-feat"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="tag">صفحة هبوط</span>
+            <h3>Orbit Startup</h3>
+            <p>صفحة منتج تقني رفعت التسجيلات في الأسبوع الأول 3 أضعاف.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- طريقة العمل -->
+    <section class="section" id="process">
+      <div class="section-head">
+        <span class="kicker">طريقة العمل</span>
+        <h2>من الفكرة إلى المنتج — أربع خطوات</h2>
+      </div>
+      <ol class="process">
+        <li><span class="step-no">01</span><h3>اكتشاف</h3><p>نفهم العمل، المستخدم، والمنافسين. نحدّد المشكلة بدقة قبل الحل.</p></li>
+        <li><span class="step-no">02</span><h3>هيكلة</h3><p>wireframes وخرائط تدفّق توضّح البنية والتجربة قبل الألوان.</p></li>
+        <li><span class="step-no">03</span><h3>تصميم</h3><p>واجهة نهائية عالية الدقة + نظام تصميم متكامل وقابل للتطوير.</p></li>
+        <li><span class="step-no">04</span><h3>تسليم</h3><p>نماذج تفاعلية، ملفات منظّمة، ومتابعة مع فريق التطوير حتى الإطلاق.</p></li>
+      </ol>
+    </section>
+
+    <!-- تواصل -->
+    <section class="section contact" id="contact">
+      <div class="contact-card">
+        <span class="kicker">تواصل</span>
+        <h2>عندك فكرة؟ خلّنا نطلّعها للنور.</h2>
+        <p>متاح لمشاريع التصميم والاستشارات. رد خلال 24 ساعة.</p>
+        <div class="contact-actions">
+          <a href="mailto:hello@noor.design" class="btn btn-primary">راسلني بالإيميل</a>
+          <a href="#" class="btn btn-ghost">حمّل السيرة الذاتية</a>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Dribbble">Dribbble</a>
+          <a href="#" aria-label="Behance">Behance</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="X">X / Twitter</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 نور.ديزاين — صُمّم وبُني بشغف.</p>
+    <p>مبني بـ HTML/CSS/JS نظيف · بدون أي مكتبات خارجية</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
