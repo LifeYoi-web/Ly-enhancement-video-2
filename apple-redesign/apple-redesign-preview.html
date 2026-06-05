@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="إعادة تصميم لمتجر Apple — نسخة مفهومية عربية RTL" />
+  <title>Apple — إعادة تصميم (مفهوم)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+/* ===== التوكنز ===== */
+:root {
+  --bg: #fff;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --nav-bg: rgba(255,255,255,.72);
+  --nav-text: #1d1d1f;
+  --tile-light: #fafafa;
+  --tile-dark: #0a0a0a;
+  --blue: #0071e3;
+  --blue-hover: #0077ed;
+  --line: #d2d2d7;
+  --ease: cubic-bezier(.28,.11,.32,1);
+  --maxw: 1024px;
+  --radius: 22px;
+}
+[data-theme="dark"] {
+  --bg: #000;
+  --text: #f5f5f7;
+  --muted: #a1a1a6;
+  --nav-bg: rgba(22,22,23,.72);
+  --nav-text: #f5f5f7;
+  --tile-light: #161617;
+  --line: #2a2a2c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "IBM Plex Sans Arabic", -apple-system, system-ui, sans-serif;
+  background: var(--bg); color: var(--text);
+  -webkit-font-smoothing: antialiased; line-height: 1.5;
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+a { color: inherit; text-decoration: none; }
+section { scroll-margin-top: 60px; }
+
+/* ===== الشريط العلوي ===== */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nav-bg); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+}
+.nav-inner { max-width: var(--maxw); margin: 0 auto; height: 48px; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { color: var(--nav-text); display: grid; place-items: center; opacity: .9; }
+.nav-menu { display: flex; gap: 4px; }
+.nav-menu a { color: var(--nav-text); font-size: 13px; opacity: .85; padding: 6px 12px; border-radius: 8px; transition: .2s; }
+.nav-menu a:hover { opacity: 1; background: color-mix(in srgb, var(--text) 6%, transparent); }
+.nav-icons { display: flex; align-items: center; gap: 4px; }
+.nav-ico { background: none; border: none; color: var(--nav-text); width: 32px; height: 32px; display: grid; place-items: center; cursor: pointer; opacity: .85; border-radius: 8px; transition: .2s; }
+.nav-ico:hover { opacity: 1; background: color-mix(in srgb, var(--text) 6%, transparent); }
+.nav-burger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 6px; }
+.nav-burger span { width: 18px; height: 1.5px; background: var(--nav-text); border-radius: 2px; transition: .3s; }
+
+/* ===== شريط إعلاني ===== */
+.promo-strip { background: var(--tile-light); color: var(--muted); text-align: center; font-size: 14px; padding: 11px 16px; }
+.promo-strip a { color: var(--blue); font-weight: 500; }
+.promo-strip a:hover { text-decoration: underline; }
+
+/* ===== المسرح (هيرو) ===== */
+.stage { text-align: center; overflow: hidden; position: relative; padding: 56px 16px 0; min-height: 640px; display: flex; flex-direction: column; align-items: center; }
+.stage-dark { background: radial-gradient(120% 120% at 50% 0%, #2a2a2e 0%, #000 60%); color: #f5f5f7; }
+.stage-light { background: radial-gradient(120% 120% at 50% 0%, #fbfbfd 0%, #e8e8ed 100%); color: #1d1d1f; }
+[data-theme="dark"] .stage-light { background: radial-gradient(120% 120% at 50% 0%, #1c1c1f 0%, #0a0a0a 100%); color: #f5f5f7; }
+.stage-text.top { margin-bottom: 14px; }
+.logo-line { font-size: clamp(40px, 7vw, 72px); font-weight: 600; letter-spacing: -.02em; line-height: 1.05; }
+.tagline { font-size: clamp(19px, 2.6vw, 26px); margin-top: 6px; font-weight: 400; opacity: .92; }
+.link-row { display: flex; gap: 26px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.link-row.sm { margin-top: 14px; gap: 22px; }
+.pill { background: var(--blue); color: #fff; padding: 9px 22px; border-radius: 980px; font-size: 16px; transition: .25s var(--ease); }
+.pill:hover { background: var(--blue-hover); transform: scale(1.02); }
+.pill-dark { background: var(--blue); }
+.link-arrow { color: var(--blue); font-size: 16px; display: inline-flex; align-items: center; gap: 2px; transition: .2s; }
+.link-arrow::after { content: "›"; font-size: 19px; transition: transform .2s var(--ease); }
+.link-arrow:hover { text-decoration: underline; }
+.link-arrow:hover::after { transform: translateX(-3px); }
+
+/* ===== الأجهزة (مرسومة CSS) ===== */
+.stage-visual { flex: 1; display: flex; align-items: flex-end; justify-content: center; width: 100%; }
+
+/* iPhone */
+.device-iphone { animation: rise 1s var(--ease) both; }
+.iph-frame { width: 230px; height: 470px; border-radius: 46px; background: linear-gradient(160deg, #3a3a3c, #1a1a1c); padding: 11px; position: relative; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), inset 0 0 0 2px rgba(255,255,255,.06); }
+.iph-screen { width: 100%; height: 100%; border-radius: 36px; background: linear-gradient(180deg, #0a3d62, #6a89cc, #f6b93b); position: relative; overflow: hidden; }
+.iph-island { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); width: 78px; height: 22px; background: #000; border-radius: 14px; z-index: 2; }
+.iph-cam { position: absolute; top: 26px; left: 26px; width: 58px; height: 58px; background: rgba(255,255,255,.1); border-radius: 18px; display: flex; flex-wrap: wrap; gap: 4px; padding: 7px; z-index: 3; }
+.iph-cam i { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #555, #111); box-shadow: inset 0 0 0 2px rgba(255,255,255,.08); }
+
+/* Laptop */
+.device-laptop { animation: rise 1s var(--ease) both; margin-bottom: -2px; }
+.lap-screen { width: 420px; height: 264px; background: #111; border-radius: 16px 16px 0 0; padding: 12px; border: 2px solid #2a2a2c; border-bottom: none; position: relative; overflow: hidden; }
+.lap-glow { width: 100%; height: 100%; border-radius: 6px; background: linear-gradient(135deg, #ff6b6b, #5f27cd, #00d2d3); }
+.lap-base { width: 480px; height: 14px; background: linear-gradient(180deg, #d8d8dc, #b0b0b6); border-radius: 0 0 12px 12px; position: relative; }
+.lap-base::after { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 6px; background: #9a9aa0; border-radius: 0 0 8px 8px; }
+
+/* Watch */
+.device-watch { display: flex; flex-direction: column; align-items: center; animation: rise .9s var(--ease) both; }
+.w-band { width: 56px; height: 60px; background: linear-gradient(90deg, #c0392b, #e74c3c); }
+.w-band:first-child { border-radius: 12px 12px 4px 4px; }
+.w-band:last-child { border-radius: 4px 4px 12px 12px; }
+.w-face { width: 100px; height: 120px; background: #000; border-radius: 30px; border: 3px solid #2a2a2c; display: grid; place-items: center; box-shadow: 0 20px 40px -16px rgba(0,0,0,.6); }
+.w-face i { width: 70px; height: 90px; border-radius: 20px; background: linear-gradient(160deg, #ee5253, #feca57, #48dbfb); }
+
+/* iPad */
+.device-ipad { animation: rise .9s var(--ease) both; }
+.ip-screen { width: 240px; height: 310px; border-radius: 22px; background: #1a1a1c; padding: 10px; box-shadow: 0 30px 60px -24px rgba(0,0,0,.5); }
+.ip-screen::after { content: ""; display: block; width: 100%; height: 100%; border-radius: 13px; background: linear-gradient(160deg, #5f27cd, #00d2d3, #feca57); }
+
+/* AirPods */
+.device-airpods { display: flex; gap: 16px; animation: rise .9s var(--ease) both; }
+.pod { width: 40px; height: 130px; position: relative; }
+.pod::before { content: ""; position: absolute; top: 0; left: 8px; width: 24px; height: 30px; background: #f5f5f7; border-radius: 12px 12px 8px 8px; box-shadow: 0 6px 14px rgba(0,0,0,.3); }
+.pod i { position: absolute; top: 26px; left: 14px; width: 12px; height: 100px; background: #f5f5f7; border-radius: 0 0 6px 6px; box-shadow: 0 6px 14px rgba(0,0,0,.25); }
+
+/* Trade badge */
+.trade-badge { font-size: 90px; opacity: .85; animation: spin 14s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+
+/* ===== شبكة البلاطات ===== */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; max-width: 1280px; margin: 12px auto 0; }
+.tile { border-radius: var(--radius); text-align: center; padding: 46px 16px 0; min-height: 560px; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
+.tile-dark { background: radial-gradient(120% 100% at 50% 0%, #2a2a2e, #000 70%); color: #f5f5f7; }
+.tile-light { background: var(--tile-light); color: var(--text); border: 1px solid var(--line); }
+.tile-airpods { background: radial-gradient(120% 100% at 50% 0%, #1a1a2e, #050510 70%); color: #f5f5f7; }
+.tile-trade { background: linear-gradient(160deg, #0071e3, #00c6fb); color: #fff; }
+.tile-head h3 { font-size: clamp(28px, 4vw, 40px); font-weight: 600; letter-spacing: -.01em; }
+.tile-head h3 span { font-weight: 400; }
+.tile-head p { font-size: 17px; margin-top: 6px; opacity: .9; }
+.tile-visual { flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+
+/* ===== شريط المميزات ===== */
+.features { max-width: var(--maxw); margin: 56px auto; padding: 0 22px; display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.feat { text-align: center; padding: 22px; border-radius: 18px; transition: .25s var(--ease); }
+.feat:hover { background: var(--tile-light); transform: translateY(-3px); }
+.feat-ico { font-size: 34px; margin-bottom: 12px; }
+.feat h4 { font-size: 17px; margin-bottom: 5px; }
+.feat p { font-size: 14px; color: var(--muted); }
+
+/* ===== الفوتر ===== */
+.ft { background: var(--tile-light); border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.ft-cols { max-width: var(--maxw); margin: 0 auto; padding: 40px 22px 26px; display: grid; grid-template-columns: repeat(4,1fr); gap: 26px; }
+.ft-cols h5 { color: var(--text); font-size: 13px; margin-bottom: 12px; }
+.ft-cols a { display: block; padding: 4px 0; transition: .2s; }
+.ft-cols a:hover { color: var(--text); }
+.ft-bottom { max-width: var(--maxw); margin: 0 auto; padding: 18px 22px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* ===== متجاوب ===== */
+@media (max-width: 833px) {
+  .nav-menu { position: fixed; inset: 49px 0 auto 0; flex-direction: column; background: var(--nav-bg); backdrop-filter: blur(20px); padding: 16px 22px; gap: 0; transform: translateY(-110%); transition: .4s var(--ease); border-bottom: 1px solid var(--line); }
+  .nav-menu.open { transform: none; }
+  .nav-menu a { padding: 12px 0; font-size: 17px; border-bottom: 1px solid var(--line); }
+  .nav-burger { display: flex; }
+  .nav-burger.open span:first-child { transform: translateY(3px) rotate(45deg); }
+  .nav-burger.open span:last-child { transform: translateY(-3px) rotate(-45deg); }
+  .tiles { grid-template-columns: 1fr; }
+  .features { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .features { grid-template-columns: 1fr; }
+  .ft-cols { grid-template-columns: 1fr 1fr; }
+  .stage { min-height: 560px; }
+  .lap-base { width: 360px; } .lap-screen { width: 312px; height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+
+</style>
+</head>
+<body>
+  <!-- ===== الشريط العلوي ===== -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Apple">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.1-2.01-3.77-2.04-1.6-.16-3.13.94-3.94.94-.81 0-2.07-.92-3.4-.89-1.75.03-3.36 1.02-4.26 2.58-1.82 3.16-.47 7.83 1.3 10.39.86 1.25 1.89 2.66 3.24 2.61 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.28 3.15-2.54.99-1.46 1.4-2.87 1.42-2.94-.03-.01-2.73-1.05-2.76-4.16zM14.6 4.62c.72-.87 1.2-2.08 1.07-3.28-1.03.04-2.28.69-3.02 1.55-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/></svg>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#store">المتجر</a>
+        <a href="#mac">Mac</a>
+        <a href="#ipad">iPad</a>
+        <a href="#iphone">iPhone</a>
+        <a href="#watch">Watch</a>
+        <a href="#airpods">AirPods</a>
+        <a href="#support">الدعم</a>
+      </nav>
+      <div class="nav-icons">
+        <button class="nav-ico" aria-label="بحث"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></button>
+        <button class="nav-ico" aria-label="الحقيبة"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7L6 7zM9 7a3 3 0 016 0"/></svg></button>
+        <button class="nav-ico theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="nav-burger" id="navBurger" aria-label="القائمة"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== شريط إعلاني علوي ===== -->
+  <div class="promo-strip">
+    اشترِ iPhone أو Mac للجامعة واحصل على بطاقة هدية. <a href="#">تسوّق الآن ↗</a>
+  </div>
+
+  <main>
+    <!-- ===== هيرو رئيسي: iPhone ===== -->
+    <section class="stage stage-dark" id="iphone">
+      <div class="stage-text top">
+        <h2 class="logo-line">iPhone 16 Pro</h2>
+        <p class="tagline">عقلٌ خارق. قوّةٌ فائقة.</p>
+        <div class="link-row">
+          <a href="#" class="pill">اعرف المزيد</a>
+          <a href="#" class="link-arrow">اشترِ</a>
+        </div>
+      </div>
+      <div class="stage-visual">
+        <div class="device-iphone">
+          <div class="iph-frame">
+            <div class="iph-island"></div>
+            <div class="iph-screen"></div>
+            <div class="iph-cam"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== هيرو ثانوي: Mac ===== -->
+    <section class="stage stage-light" id="mac">
+      <div class="stage-text top">
+        <h2 class="logo-line">MacBook Air</h2>
+        <p class="tagline">خفّةٌ تسبق عصرها.</p>
+        <div class="link-row">
+          <a href="#" class="pill pill-dark">اعرف المزيد</a>
+          <a href="#" class="link-arrow dark">اشترِ</a>
+        </div>
+      </div>
+      <div class="stage-visual">
+        <div class="device-laptop">
+          <div class="lap-screen"><div class="lap-glow"></div></div>
+          <div class="lap-base"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== شبكة بلاطات ===== -->
+    <section class="tiles">
+      <article class="tile tile-dark" id="watch">
+        <div class="tile-head">
+          <h3>Apple Watch <span>Series 10</span></h3>
+          <p>أنحف. أكبر شاشة. أقرب إليك.</p>
+          <div class="link-row sm"><a href="#" class="link-arrow">اعرف المزيد</a><a href="#" class="link-arrow">اشترِ</a></div>
+        </div>
+        <div class="tile-visual">
+          <div class="device-watch"><div class="w-band"></div><div class="w-face"><i></i></div><div class="w-band"></div></div>
+        </div>
+      </article>
+
+      <article class="tile tile-light" id="ipad">
+        <div class="tile-head">
+          <h3>iPad Pro</h3>
+          <p>رقيقٌ بشكل لا يُصدّق. قويٌّ بشكل مذهل.</p>
+          <div class="link-row sm"><a href="#" class="link-arrow dark">اعرف المزيد</a><a href="#" class="link-arrow dark">اشترِ</a></div>
+        </div>
+        <div class="tile-visual">
+          <div class="device-ipad"><div class="ip-screen"></div></div>
+        </div>
+      </article>
+
+      <article class="tile tile-airpods" id="airpods">
+        <div class="tile-head">
+          <h3>AirPods Pro</h3>
+          <p>صوتٌ يغمرك. وعزلٌ يأسرك.</p>
+          <div class="link-row sm"><a href="#" class="link-arrow">اعرف المزيد</a><a href="#" class="link-arrow">اشترِ</a></div>
+        </div>
+        <div class="tile-visual">
+          <div class="device-airpods"><div class="pod"><i></i></div><div class="pod"><i></i></div></div>
+        </div>
+      </article>
+
+      <article class="tile tile-trade" id="store">
+        <div class="tile-head">
+          <h3>استبدل واربح</h3>
+          <p>قايض جهازك القديم واحصل على خصم على الجديد.</p>
+          <div class="link-row sm"><a href="#" class="link-arrow">قدّر قيمته</a><a href="#" class="link-arrow">اعرف المزيد</a></div>
+        </div>
+        <div class="tile-visual">
+          <div class="trade-badge">↺</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== شريط مميزات ===== -->
+    <section class="features">
+      <div class="feat"><div class="feat-ico">🚚</div><h4>توصيل مجاني</h4><p>لكل الطلبات، وإرجاع سهل خلال 14 يوم.</p></div>
+      <div class="feat"><div class="feat-ico">💳</div><h4>تقسيط ميسّر</h4><p>قسّط مشترياتك بدون فوائد على دفعات.</p></div>
+      <div class="feat"><div class="feat-ico">🎁</div><h4>هدايا مخصّصة</h4><p>نقش مجاني بالعربي والإنجليزي على أجهزتك.</p></div>
+      <div class="feat"><div class="feat-ico">🛟</div><h4>دعم خبير</h4><p>تحدث مع متخصص يساعدك في كل خطوة.</p></div>
+    </section>
+  </main>
+
+  <!-- ===== الفوتر ===== -->
+  <footer class="ft">
+    <div class="ft-cols">
+      <div><h5>تسوّق واعرف</h5><a href="#">المتجر</a><a href="#">Mac</a><a href="#">iPad</a><a href="#">iPhone</a><a href="#">Watch</a></div>
+      <div><h5>حسابك</h5><a href="#">إدارة حسابك</a><a href="#">حساب المتجر</a><a href="#">iCloud.com</a></div>
+      <div><h5>متجر Apple</h5><a href="#">ابحث عن متجر</a><a href="#">حالة الطلب</a><a href="#">المساعدة في الشراء</a></div>
+      <div><h5>قيم وخدمات</h5><a href="#">Apple One</a><a href="#">iCloud+</a><a href="#">Apple Music</a><a href="#">AppleCare+</a></div>
+    </div>
+    <div class="ft-bottom">
+      <p>نسخة مفهومية لإعادة التصميم لأغراض العرض فقط — غير مرتبطة بشركة Apple.</p>
+      <p>© 2026 إعادة تصميم بواسطة نور.ديزاين</p>
+    </div>
+  </footer>
+
+  <script>
+// ===== الوضع الليلي / النهاري =====
+const root = document.documentElement;
+const saved = localStorage.getItem('apple-theme');
+if (saved) root.setAttribute('data-theme', saved);
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('apple-theme', next);
+});
+// أيقونة الشمس/القمر حسب الوضع
+const syncIcons = () => {
+  const dark = root.getAttribute('data-theme') === 'dark';
+  document.querySelector('.icon-sun').style.display = dark ? 'none' : 'block';
+  document.querySelector('.icon-moon').style.display = dark ? 'block' : 'none';
+};
+new MutationObserver(syncIcons).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+syncIcons();
+
+// ===== قائمة الجوال =====
+const burger = document.getElementById('navBurger');
+const menu = document.getElementById('navMenu');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); menu.classList.remove('open'); }));
+
+// ===== حركات ظهور خفيفة عند التمرير =====
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = 1; e.target.style.transform = 'none'; io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.tile-head, .feat').forEach(el => {
+  el.style.opacity = 0; el.style.transform = 'translateY(28px)';
+  el.style.transition = 'opacity .7s cubic-bezier(.28,.11,.32,1), transform .7s cubic-bezier(.28,.11,.32,1)';
+  io.observe(el);
+});
+
+</script>
+</body>
+</html>
